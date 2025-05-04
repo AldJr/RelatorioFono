@@ -1501,30 +1501,40 @@
     
     // Função para corrigir campos na seção Escola
     function corrigirSecaoEscola(dadosRelatorio) {
-        // Copiar campos da seção escola que estão usando names de outras seções
-        const escolaSection = document.querySelector('section h2:contains("Escola")').closest('section');
-        if (escolaSection) {
-            const inputs = escolaSection.querySelectorAll('input, textarea');
-            inputs.forEach(input => {
-                if (input.name && input.name !== "") {
-                    if (input.type === 'radio') {
-                        if (input.checked) {
-                            dadosRelatorio.escola[input.name + '_escola'] = input.value;
-                        }
-                    } else if (input.type === 'checkbox') {
-                        if (input.checked) {
-                            if (!dadosRelatorio.escola[input.name + '_escola']) {
-                                dadosRelatorio.escola[input.name + '_escola'] = [];
+        // Pegar todas as seções
+        const sections = document.querySelectorAll('section');
+        
+        // Encontrar a seção Escola usando um loop padrão
+        for (let i = 0; i < sections.length; i++) {
+            const section = sections[i];
+            const h2 = section.querySelector('h2');
+            
+            if (h2 && h2.textContent.trim().toLowerCase().includes('escola')) {
+                // Processar inputs nesta seção
+                const inputs = section.querySelectorAll('input, textarea');
+                for (let j = 0; j < inputs.length; j++) {
+                    const input = inputs[j];
+                    if (input.name && input.name !== "") {
+                        if (input.type === 'radio') {
+                            if (input.checked) {
+                                dadosRelatorio.escola[input.name + '_escola'] = input.value;
                             }
-                            dadosRelatorio.escola[input.name + '_escola'].push(input.value);
-                        }
-                    } else {
-                        if (input.value) {
-                            dadosRelatorio.escola[input.name + '_escola'] = input.value;
+                        } else if (input.type === 'checkbox') {
+                            if (input.checked) {
+                                if (!dadosRelatorio.escola[input.name + '_escola']) {
+                                    dadosRelatorio.escola[input.name + '_escola'] = [];
+                                }
+                                dadosRelatorio.escola[input.name + '_escola'].push(input.value);
+                            }
+                        } else {
+                            if (input.value) {
+                                dadosRelatorio.escola[input.name + '_escola'] = input.value;
+                            }
                         }
                     }
                 }
-            });
+                break; // Encerra o loop após encontrar a seção Escola
+            }
         }
     }
     
