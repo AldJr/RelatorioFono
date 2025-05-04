@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Anamnese</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; line-height: 1.6; }
+        section { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 5px; background-color: #f9f9f9;}
+        h1 { text-align: center; color: #2c3e50; }
+        h2 { color: #34495e; border-bottom: 2px solid #3498db; padding-bottom: 5px; margin-top: 0;}
+        h3 { color: #555; margin-top: 25px; margin-bottom: 10px; border-bottom: 1px dashed #ccc; padding-bottom: 3px;}
+        label { display: block; margin-top: 12px; font-weight: bold; color: #333; }
+        .inline-label { display: inline-block; margin-right: 10px; font-weight: bold;} /* For labels next to radios/checkboxes */
+        input[type="text"], input[type="date"], input[type="number"], select, textarea { width: 95%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box; }
+        textarea { height: 60px; }
+        .obs { margin-top: 5px; margin-bottom: 15px; border-left: 3px solid #e0e0e0; padding-left: 10px;}
+        .obs label { font-weight: normal; font-style: italic; font-size: 0.9em; color: #555;}
+        .obs textarea { width: 95%; height: 40px; font-size: 0.9em; margin-top: 2px; }
+        .section-obs label { font-weight: bold; font-style: normal; font-size: 1em; color: #333; }
+        .section-obs textarea { width: 95%; height: 60px; margin-top: 10px; border: 1px solid #aaa;}
+        .checkbox-group, .radio-group { margin-top: 5px; margin-bottom: 5px; padding-left: 10px;}
+        .checkbox-group label, .radio-group label { display: inline-block; margin-right: 15px; font-weight: normal; }
+        .checkbox-group input, .radio-group input { margin-right: 5px; vertical-align: middle;}
+        .checkbox-group br { display: block; margin-bottom: 5px; } /* Better spacing for checkboxes */
+        .inline-fields { margin-top: 10px; margin-bottom: 5px;}
+        .inline-fields label { display: inline-block; margin-right: 5px; margin-left: 0px; font-weight: normal; } /* Adjusted margin-left */
+        .inline-fields .field-label { font-weight: bold; margin-left: 0;} /* Label for the group */
+        .inline-fields input { width: auto; margin-right: 10px; padding: 6px; vertical-align: middle;}
+        .inline-fields input[type="text"], .inline-fields input[type="number"], .inline-fields input[type="date"] { margin-left: 0;}
+         /* Adjust specific input sizes */
+        input[size] { width: auto; } /* Let size attribute work */
+        input[style*="width"] { width: auto; } /* Let inline style width work */
+        .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 5px 15px; margin-top: 5px; }
+        .checkbox-grid label { margin-right: 5px; }
+        .checkbox-grid div { display: flex; align-items: center;}
+
+    </style>
+</head>
+<body>
+
+<h1>Relatório de Anamnese</h1>
+
+<section>
+    <h2>DADOS PESSOAIS</h2>
+    <label for="nome_completo">Nome Completo (sem abreviar):</label>
+    <input type="text" id="nome_completo" name="nome_completo">
+    
+
+    <div class="inline-fields">
+        <label for="prontuario" class="field-label">Nº Prontuário:</label>
+        <input type="text" id="prontuario" name="prontuario" size="15">
+        <label for="entrevistado" class="field-label">Entrevistado:</label>
+        <input type="text" id="entrevistado" name="entrevistado">
+        <label for="data_entrevista" class="field-label">Data da Entrevista:</label>
+        <input type="date" id="data_entrevista" name="data_entrevista">
+
+     <div class="inline-fields">
+        <label for="idade_anos" class="field-label">Idade:</label>
+        <input type="number" id="idade_anos" name="idade_anos" min="0" style="width: 50px;"> anos
+        <input type="number" id="idade_meses" name="idade_meses" min="0" max="11" style="width: 50px;"> meses
+
+        <label for="dn" class="field-label">DN:</label>
+        <input type="date" id="dn" name="dn">
+
+        <label class="field-label">Sexo:</label>
+        <input type="radio" id="sexo_m" name="sexo" value="M"> <label for="sexo_m">M</label>
+        <input type="radio" id="sexo_f" name="sexo" value="F"> <label for="sexo_f">F</label>
+     </div>
+
+    <label for="escola">Nome da Escola:</label>
+    <input type="text" id="escola" name="escola">
+     <div class="inline-fields">
+         <label for="serie" class="field-label">Série:</label>
+         <input type="text" id="serie" name="serie" size="10">
+         <label for="horario" class="field-label">Horário:</label>
+         <input type="text" id="horario" name="horario" size="10">
+     </div>
+    <div class="obs">
+        <label for="obs_escola">Observação (Escola/Série/Horário):</label>
+        <textarea id="obs_escola" name="obs_escola"></textarea>
+    </div>
+
+    <label for="nome_pai">Nome do Pai (sem abreviar):</label>
+    <input type="text" id="nome_pai" name="nome_pai">
+     <div class="inline-fields">
+        <label for="dn_pai" class="field-label">DN:</label>
+        <input type="date" id="dn_pai" name="dn_pai">
+     </div>
+    <label for="ocupacao_pai">Ocupação (Pai):</label>
+    <input type="text" id="ocupacao_pai" name="ocupacao_pai">
+
+
+    <label for="escolaridade_pai">Escolaridade (Pai):</label>
+    <input type="text" id="escolaridade_pai" name="escolaridade_pai">
+
+
+    <label for="nome_mae">Nome da Mãe (sem abreviar):</label>
+    <input type="text" id="nome_mae" name="nome_mae">
+     <div class="inline-fields">
+        <label for="dn_mae" class="field-label">DN:</label>
+        <input type="date" id="dn_mae" name="dn_mae">
+     </div>
+
+    <label for="ocupacao_mae">Ocupação (Mãe):</label>
+    <input type="text" id="ocupacao_mae" name="ocupacao_mae">
+
+    <label for="escolaridade_mae">Escolaridade (Mãe):</label>
+    <input type="text" id="escolaridade_mae" name="escolaridade_mae">
+
+    <label for="composicao_familiar">Composição familiar:</label>
+    <textarea id="composicao_familiar" name="composicao_familiar"></textarea>
+    <div class="obs">
+        <label for="obs_composicao_familiar">Observação:</label>
+        <textarea id="obs_composicao_familiar" name="obs_composicao_familiar"></textarea>
+    </div>
+
+     <div class="inline-fields">
+        <label for="estagiario" class="field-label">Estagiário:</label>
+        <input type="text" id="estagiario" name="estagiario" size="30">
+     </div>
+
+
+    <label for="supervisor">Supervisor:</label>
+    <input type="text" id="supervisor" name="supervisor">
+    <p>
+    <label for="queixa">QUEIXA:</label>
+    <textarea id="queixa" name="queixa"></textarea>
+    </p>
+    <div class="obs">
+        <label for="obs_queixa">Observação:</label>
+        <textarea id="obs_queixa" name="obs_queixa"></textarea>
+    </div>
+    <div class="section-obs">
+        <label for="obs_geral_dados_pessoais">Observação Geral da Seção Dados Pessoais:</label>
+        <textarea id="obs_geral_dados_pessoais" name="obs_geral_dados_pessoais"></textarea>
+    </div>
+</section>
+
+<section>
+    <h2>GRAVIDEZ</h2>
+    <div class="radio-group">
+        <label class="inline-label">Foi bem vinda para os pais?</label>
+        <input type="radio" id="bem_vinda_sim" name="bem_vinda" value="sim"> <label for="bem_vinda_sim">Sim</label>
+        <input type="radio" id="bem_vinda_nao" name="bem_vinda" value="nao"> <label for="bem_vinda_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_bem_vinda">Observação:</label>
+        <textarea id="obs_bem_vinda" name="obs_bem_vinda"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Foi uma experiência agradável?</label>
+        <input type="radio" id="exp_agradavel_sim" name="exp_agradavel" value="sim"> <label for="exp_agradavel_sim">Sim</label>
+        <input type="radio" id="exp_agradavel_nao" name="exp_agradavel" value="nao"> <label for="exp_agradavel_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_exp_agradavel">Observação:</label>
+        <textarea id="obs_exp_agradavel" name="obs_exp_agradavel"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Realizou pré-natal?</label>
+        <input type="radio" id="prenatal_sim" name="prenatal" value="sim"> <label for="prenatal_sim">Sim</label>
+        <input type="radio" id="prenatal_nao" name="prenatal" value="nao"> <label for="prenatal_nao">Não</label>
+    </div>
+    <div class="inline-fields">
+        <label for="prenatal_semanas" class="field-label">A partir de quantas semanas?</label>
+        <input type="text" id="prenatal_semanas" name="prenatal_semanas" size="20">
+    </div>
+     <label for="prenatal_intercorrencias">Intercorrências:</label>
+    <input type="text" id="prenatal_intercorrencias" name="prenatal_intercorrencias">
+
+
+    <div class="radio-group">
+        <label class="inline-label">A mãe gozava de boa saúde?</label>
+        <input type="radio" id="saude_mae_sim" name="saude_mae" value="sim"> <label for="saude_mae_sim">Sim</label>
+        <input type="radio" id="saude_mae_nao" name="saude_mae" value="nao"> <label for="saude_mae_nao">Não</label>
+    </div>
+
+    <div class="obs">
+        <label for="obs_saude_mae">Observação (Saúde da Mãe/Doenças):</label>
+        <textarea id="obs_saude_mae" name="obs_saude_mae"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">A mãe ficou deprimida?</label>
+        <input type="radio" id="deprimida_sim" name="deprimida" value="sim"> <label for="deprimida_sim">Sim</label>
+        <input type="radio" id="deprimida_nao" name="deprimida" value="nao"> <label for="deprimida_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_deprimida">Observação:</label>
+        <textarea id="obs_deprimida" name="obs_deprimida"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">A mãe ficou hospitalizada/acamada?</label>
+        <input type="radio" id="hospitalizada_sim" name="hospitalizada" value="sim"> <label for="hospitalizada_sim">Sim</label>
+        <input type="radio" id="hospitalizada_nao" name="hospitalizada" value="nao"> <label for="hospitalizada_nao">Não</label>
+    </div>
+    <div class="inline-fields">
+         <label for="hospitalizada_motivo" class="field-label">Motivo:</label>
+         <input type="text" id="hospitalizada_motivo" name="hospitalizada_motivo" size="30">
+         <label for="hospitalizada_tempo" class="field-label">Tempo:</label>
+         <input type="text" id="hospitalizada_tempo" name="hospitalizada_tempo" size="15">
+    </div>
+    <div class="obs">
+        <label for="obs_hospitalizada">Observação (Hospitalizada/Motivo/Tempo):</label>
+        <textarea id="obs_hospitalizada" name="obs_hospitalizada"></textarea>
+    </div>
+
+    <label for="bebe_mexeu">Quando o bebê mexeu pela primeira vez?</label>
+    <input type="text" id="bebe_mexeu" name="bebe_mexeu" min="0" style="width: 260px;">
+    <div class="obs">
+        <label for="obs_bebe_mexeu">Observação:</label>
+        <textarea id="obs_bebe_mexeu" name="obs_bebe_mexeu"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Houve diminuição na atividade fetal antes do nascimento?</label>
+        <input type="radio" id="dim_atividade_fetal_sim" name="dim_atividade_fetal" value="sim"> <label for="dim_atividade_fetal_sim">Sim</label>
+        <input type="radio" id="dim_atividade_fetal_nao" name="dim_atividade_fetal" value="nao"> <label for="dim_atividade_fetal_nao">Não</label>
+        <label for="dim_atividade_fetal_explique">Explique:</label>
+        <textarea id="dim_atividade_fetal_explique" name="dim_atividade_fetal_explique"></textarea>
+    </div>
+    <div class="section-obs">
+        <label for="obs_geral_gravidez">Observação Geral da Seção GRAVIDEZ:</label>
+        <textarea id="obs_geral_gravidez" name="obs_geral_gravidez"></textarea>
+    </div>
+</section>
+
+<section>
+    <h2>NASCIMENTO</h2>
+    <div class="radio-group">
+        <label class="inline-label">O bebê nasceu em um hospital?</label>
+        <input type="radio" id="nasceu_hospital_sim" name="nasceu_hospital" value="sim"> <label for="nasceu_hospital_sim">Sim</label>
+        <input type="radio" id="nasceu_hospital_nao" name="nasceu_hospital" value="nao"> <label for="nasceu_hospital_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_nasceu_hospital">Observação (Nasceu Hospital/Qual):</label>
+        <textarea id="obs_nasceu_hospital" name="obs_nasceu_hospital"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">O bebê nasceu a termo?</label>
+        <input type="radio" id="nasceu_termo_sim" name="nasceu_termo" value="sim"> <label for="nasceu_termo_sim">Sim</label>
+        <input type="radio" id="nasceu_termo_nao" name="nasceu_termo" value="nao"> <label for="nasceu_termo_nao">Não</label>
+    </div>
+  
+
+    <div class="inline-fields">
+        <label for="semanas_gestacao" class="field-label">Quantas semanas de gestação?</label>
+        <input type="number" id="semanas_gestacao" name="semanas_gestacao" min="0" style="width: 60px;">
+        <label for="tipo_parto" class="field-label">Tipo de parto:</label>
+        <input type="text" id="tipo_parto" name="tipo_parto" size="20">
+    </div>
+    <div class="obs">
+        <label for="obs_semanas_tipo_parto">Observação (Semanas/Tipo Parto):</label>
+        <textarea id="obs_semanas_tipo_parto" name="obs_semanas_tipo_parto"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Teve algum problema?</label>
+        <input type="radio" id="problema_parto_sim" name="problema_parto" value="sim"> <label for="problema_parto_sim">Sim</label>
+        <input type="radio" id="problema_parto_nao" name="problema_parto" value="nao"> <label for="problema_parto_nao">Não</label>
+    </div>
+
+    <div class="obs">
+        <label for="obs_problema_parto">Observação (Problema Parto/Qual):</label>
+        <textarea id="obs_problema_parto" name="obs_problema_parto"></textarea>
+    </div>
+
+     <div class="inline-fields">
+        <label for="peso" class="field-label">Peso:</label>
+        <input type="number" id="peso" name="peso" min="0" step="10" style="width: 80px;"> gramas
+        <label for="altura" class="field-label">Altura:</label>
+        <input type="number" id="altura" name="altura" min="0" step="0.1" style="width: 60px;"> cm
+    </div>
+    <div class="obs">
+        <label for="obs_peso_altura">Observação (Peso/Altura):</label>
+        <textarea id="obs_peso_altura" name="obs_peso_altura"></textarea>
+    </div>
+
+     <div class="inline-fields">
+        <label for="perimetro_cefalico" class="field-label">Perímetro Cefálico:</label>
+        <input type="number" id="perimetro_cefalico" name="perimetro_cefalico" min="0" step="0.1" style="width: 60px;"> cm
+        <label for="apgar" class="field-label">Apgar:</label>
+        <input type="text" id="apgar" name="apgar" size="5">
+    </div>
+    <div class="obs">
+        <label for="obs_perimetro_apgar">Observação (Perímetro Cefálico/Apgar):</label>
+        <textarea id="obs_perimetro_apgar" name="obs_perimetro_apgar"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Nascimento individual?</label>
+        <input type="radio" id="nasc_individual_sim" name="nasc_individual" value="sim"> <label for="nasc_individual_sim">Sim</label>
+        <input type="radio" id="nasc_individual_nao" name="nasc_individual" value="nao"> <label for="nasc_individual_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_nasc_individual">Observação:</label>
+        <textarea id="obs_nasc_individual" name="obs_nasc_individual"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">A condição do bebê ao nascer foi normal?</label>
+        <input type="radio" id="condicao_bebe_normal_sim" name="condicao_bebe_normal" value="sim"> <label for="condicao_bebe_normal_sim">Sim</label>
+        <input type="radio" id="condicao_bebe_normal_nao" name="condicao_bebe_normal" value="nao"> <label for="condicao_bebe_normal_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_condicao_bebe_normal">Observação:</label>
+        <textarea id="obs_condicao_bebe_normal" name="obs_condicao_bebe_normal"></textarea>
+    </div>
+
+    <label>Aspecto físico ao nascer:</label>
+    <div class="checkbox-group" style="columns: 2;">
+        <input type="checkbox" id="aspecto_bat_lentos" name="aspecto_fisico" value="batimentos_lentos"> <label for="aspecto_bat_lentos">Batimentos cardíacos lentos</label><br>
+        <input type="checkbox" id="aspecto_mole" name="aspecto_fisico" value="mole_inativo"> <label for="aspecto_mole">Mole e inativo</label><br>
+        <input type="checkbox" id="aspecto_bat_rapidos" name="aspecto_fisico" value="batimentos_rapidos"> <label for="aspecto_bat_rapidos">Batimentos cardíacos rápidos</label><br>
+        <input type="checkbox" id="aspecto_roxo" name="aspecto_fisico" value="roxo"> <label for="aspecto_roxo">Roxo</label><br>
+        <input type="checkbox" id="aspecto_resp" name="aspecto_fisico" value="problema_respiratorio"> <label for="aspecto_resp">Problema respiratório</label><br>
+        <input type="checkbox" id="aspecto_ictericia" name="aspecto_fisico" value="ictericia"> <label for="aspecto_ictericia">Icterícia</label><br>
+         <input type="checkbox" id="aspecto_down" name="aspecto_fisico" value="sindrome_down"> <label for="aspecto_down">Síndrome de Down</label><br>
+         <input type="checkbox" id="aspecto_ma_formacao" name="aspecto_fisico" value="mas_formacoes"> <label for="aspecto_ma_formacao">Más formações</label><br>
+        <input type="checkbox" id="aspecto_o2" name="aspecto_fisico" value="precisou_oxigenio"> <label for="aspecto_o2">Precisou de oxigênio</label><br>
+        <input type="checkbox" id="aspecto_parto_traum" name="aspecto_fisico" value="parto_traumatico"> <label for="aspecto_parto_traum">Parto traumático</label><br>
+        <input type="checkbox" id="aspecto_bebe_azul" name="aspecto_fisico" value="bebe_azul"> <label for="aspecto_bebe_azul">Bebê azul</label><br>
+        <input type="checkbox" id="aspecto_fezes_liq" name="aspecto_fisico" value="fezes_liquido_amniotico"> <label for="aspecto_fezes_liq">Fezes no líquido amniótico</label><br>
+        <input type="checkbox" id="aspecto_transfusao" name="aspecto_fisico" value="transfusao_sangue"> <label for="aspecto_transfusao">Transfusão de sangue</label><br>
+        <input type="checkbox" id="aspecto_incubadora" name="aspecto_fisico" value="colocado_incubadora"> <label for="aspecto_incubadora">Colocado em incubadora</label><br>
+        <input type="checkbox" id="aspecto_outros_check" name="aspecto_fisico_outros"> <label for="aspecto_outros_check">Outros:</label> <input type="text" id="aspecto_outros_text" name="aspecto_outros_text" style="width: auto; margin-left: 5px;">
+    </div>
+    <div class="obs">
+        <label for="obs_aspecto_fisico">Observação:</label>
+        <textarea id="obs_aspecto_fisico" name="obs_aspecto_fisico"></textarea>
+    </div>
+    <div class="radio-group">
+        <label class="inline-label">Histórico familiar de alterações do neurodesenvolvimento?</label>
+        <input type="radio" id="nasc_individual_sim" name="nasc_individual" value="sim"> <label for="nasc_individual_sim">Sim</label>
+        <input type="radio" id="nasc_individual_nao" name="nasc_individual" value="nao"> <label for="nasc_individual_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_aspecto_fisico">Observação:</label>
+        <textarea id="obs_aspecto_fisico" name="obs_aspecto_fisico"></textarea>
+    </div>
+    <div class="section-obs">
+        <label for="obs_geral_nascimento">Observação Geral da Seção NASCIMENTO:</label>
+        <textarea id="obs_geral_nascimento" name="obs_geral_nascimento"></textarea>
+    </div>
+</section>
+
+<section>
+    <h2>Pós-Nascimento / Saúde Inicial</h2>
+    <div class="inline-fields">
+        <label for="dias_hospital_mae" class="field-label">Número de dias no hospital: mãe:</label>
+        <input type="number" id="dias_hospital_mae" name="dias_hospital_mae" min="0" style="width: 50px;">
+        <label for="dias_hospital_bebe" class="field-label">bebê:</label>
+        <input type="number" id="dias_hospital_bebe" name="dias_hospital_bebe" min="0" style="width: 50px;">
+    </div>
+    <div class="obs">
+        <label for="obs_dias_hospital">Observação (Dias Hospital):</label>
+        <textarea id="obs_dias_hospital" name="obs_dias_hospital"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">A mãe apresentou depressão pós-parto?</label>
+        <input type="radio" id="depressao_posparto_sim" name="depressao_posparto" value="sim"> <label for="depressao_posparto_sim">Sim</label>
+        <input type="radio" id="depressao_posparto_nao" name="depressao_posparto" value="nao"> <label for="depressao_posparto_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_depressao_posparto">Observação:</label>
+        <textarea id="obs_depressao_posparto" name="obs_depressao_posparto"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Existia suspeita de algum problema?</label>
+        <input type="radio" id="suspeita_problema_sim" name="suspeita_problema" value="sim"> <label for="suspeita_problema_sim">Sim</label>
+        <input type="radio" id="suspeita_problema_nao" name="suspeita_problema" value="nao"> <label for="suspeita_problema_nao">Não</label>
+        <label for="suspeita_problema_qual">Qual:</label>
+        <input type="text" id="suspeita_problema_qual" name="suspeita_problema_qual">
+    </div>
+    <div class="inline-fields">
+        <label for="triagensneonatais" class="field-label">Resultados das triagens neonatais:</label>
+        <input type="text" id="triagensneonatais" name="triagensneonatais" size="80">
+   </div>
+    <label for="quando_notou_problema">Quando notou que a criança poderia ter algum problema?</label>
+    <input type="text" id="quando_notou_problema" name="quando_notou_problema">
+    <div class="obs">
+        <label for="obs_quando_notou_problema">Observação:</label>
+        <textarea id="obs_quando_notou_problema" name="obs_quando_notou_problema"></textarea>
+    </div>
+
+
+    <div class="radio-group">
+        <label class="inline-label">Recebeu diagnóstico de algum médico?</label>
+        <input type="radio" id="diagnostico_medico_sim" name="diagnostico_medico" value="sim"> <label for="diagnostico_medico_sim">Sim</label>
+        <input type="radio" id="diagnostico_medico_nao" name="diagnostico_medico" value="nao"> <label for="diagnostico_medico_nao">Não</label>
+    </div>
+    <div class="inline-fields">
+         <label for="diagnostico_qual" class="field-label">Qual?</label>
+         <input type="text" id="diagnostico_qual" name="diagnostico_qual" size="30">
+         <label for="diagnostico_quando" class="field-label">Quando?</label>
+         <input type="text" id="diagnostico_quando" name="diagnostico_quando" size="15">
+    </div>
+    <div class="obs">
+        <label for="obs_diagnostico_medico">Observação (Diagnóstico Médico/Qual/Quando):</label>
+        <textarea id="obs_diagnostico_medico" name="obs_diagnostico_medico"></textarea>
+    </div>
+
+    <label for="especialidade_medico">Qual a especialidade do médico?</label>
+    <input type="text" id="especialidade_medico" name="especialidade_medico">
+
+
+    <label for="presente_diagnostico">Quem estava presente quando foi dado o diagnóstico?</label>
+    <input type="text" id="presente_diagnostico" name="presente_diagnostico">
+
+    <label for="informacoes_recebidas">Quais as informações recebidas?</label>
+    <textarea id="informacoes_recebidas" name="informacoes_recebidas"></textarea>
+
+    <label for="causa_problema">A que atribuíram a causa do problema?</label>
+    <input type="text" id="causa_problema" name="causa_problema">
+
+
+     <label for="inicio_terapeutico">Quando iniciou o processo terapêutico?</label>
+    <input type="text" id="inicio_terapeutico" name="inicio_terapeutico">
+
+
+     <label for="tipo_tratamento">Que tipo de tratamento realizou?</label>
+    <input type="text" id="tipo_tratamento" name="tipo_tratamento">
+
+    <label for="opiniao_problema_filho">Qual a sua opinião sobre o problema de seu filho?</label>
+    <textarea id="opiniao_problema_filho" name="opiniao_problema_filho"></textarea>
+
+    <div class="section-obs">
+        <label for="obs_geral_saude_inicial">Observação Geral da Seção Pós-Nascimento / Saúde Inicial:</label>
+        <textarea id="obs_geral_saude_inicial" name="obs_geral_saude_inicial"></textarea>
+    </div>
+</section>
+
+<section>
+    <h2>PRIMEIRA INFÂNCIA</h2>
+    <div class="radio-group">
+        <label class="inline-label">O bebê apresentava boa saúde nas primeiras semanas?</label>
+        <input type="radio" id="saude_primeiras_semanas_sim" name="saude_primeiras_semanas" value="sim"> <label for="saude_primeiras_semanas_sim">Sim</label>
+        <input type="radio" id="saude_primeiras_semanas_nao" name="saude_primeiras_semanas" value="nao"> <label for="saude_primeiras_semanas_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_saude_primeiras_semanas">Observação:</label>
+        <textarea id="obs_saude_primeiras_semanas" name="obs_saude_primeiras_semanas"></textarea>
+    </div>
+
+    <label>Se não, assinale as alternativas abaixo:</label>
+    <div class="checkbox-group" style="columns: 3;">
+            <input type="checkbox" id="pi_succao_fraca" name="pi_alternativas" value="succao_fraca"> <label for="pi_succao_fraca">Sucção Fraca</label><br>
+            <input type="checkbox" id="pi_prob_alimentar" name="pi_alternativas" value="problema_alimentar"> <label for="pi_prob_alimentar">Problema alimentar</label><br>
+            <input type="checkbox" id="pi_dif_ganhar_peso" name="pi_alternativas" value="dificuldade_ganhar_peso"> <label for="pi_dif_ganhar_peso">Dificuldade em ganhar peso</label><br>
+            <input type="checkbox" id="pi_prob_hormonal" name="pi_alternativas" value="problema_hormonal"> <label for="pi_prob_hormonal">Problema intestinal</label><br>
+            <input type="checkbox" id="pi_vomito" name="pi_alternativas" value="vomito_jatos"> <label for="pi_vomito">Vômito (jatos)</label><br>
+            <input type="checkbox" id="pi_cansaco" name="pi_alternativas" value="cansaco"> <label for="pi_cansaco">Cólica</label><br>
+            <input type="checkbox" id="pi_congestao" name="pi_alternativas" value="congestao"> <label for="pi_congestao">Convulsão</label><br>
+            <input type="checkbox" id="pi_choro_fraco" name="pi_alternativas" value="choro_fraco"> <label for="pi_choro_fraco">Choro fraco</label><br>
+            <input type="checkbox" id="pi_chorava_muito" name="pi_alternativas" value="chorava_muito"> <label for="pi_chorava_muito">Chorava muito</label><br>
+            <input type="checkbox" id="pi_outro_choro" name="pi_alternativas" value="outro_problema_choro"> <label for="pi_outro_choro">Outro problema de choro:</label> <input type="text" name="pi_outro_choro_text" style="width: auto; margin-left: 5px;" size="15"> <br>
+            <input type="checkbox" id="pi_bebe_dificil" name="pi_alternativas" value="bebe_dificil"> <label for="pi_bebe_dificil">Bebê difícil</label><br>
+            <input type="checkbox" id="pi_prob_respiratorio" name="pi_alternativas" value="problema_respiratorio"> <label for="pi_prob_respiratorio">Problema respiratório</label><br>
+            <input type="checkbox" id="pi_prob_sono" name="pi_alternativas" value="problema_sono"> <label for="pi_prob_sono">Problema de sono</label><br>
+            <input type="checkbox" id="pi_prob_cardiaco" name="pi_alternativas" value="problema_cardiaco"> <label for="pi_prob_cardiaco">Problema cardíaco</label><br>
+    </div>
+    <div class="obs">
+        <label for="obs_pi_alternativas">Observação (Alternativas Saúde):</label>
+        <textarea id="obs_pi_alternativas" name="obs_pi_alternativas"></textarea>
+    </div>
+
+    <div class="inline-fields radio-group">
+        <label class="inline-label">Dormia muito?</label>
+        <input type="radio" id="dormia_muito_sim" name="dormia_muito" value="sim"> <label for="dormia_muito_sim">Sim</label>
+        <input type="radio" id="dormia_muito_nao" name="dormia_muito" value="nao"> <label for="dormia_muito_nao">Não</label>
+        <label for="dormia_horas" class="field-label" style="margin-left:15px;">Quantas horas?</label>
+        <input type="text" id="dormia_horas" name="dormia_horas" size="10">
+    </div>
+    <div class="obs">
+        <label for="obs_dormia_muito">Observação (Dormia Muito/Horas):</label>
+        <textarea id="obs_dormia_muito" name="obs_dormia_muito"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Apresentava reação de susto ou espanto com estímulo auditivo ou visual?</label>
+        <input type="radio" id="reacao_susto_sim" name="reacao_susto" value="sim"> <label for="reacao_susto_sim">Sim</label>
+        <input type="radio" id="reacao_susto_nao" name="reacao_susto" value="nao"> <label for="reacao_susto_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_reacao_susto">Observação:</label>
+        <textarea id="obs_reacao_susto" name="obs_reacao_susto"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Era uma criança afetuosa?</label>
+        <input type="radio" id="crianca_afetuosa_sim" name="crianca_afetuosa" value="sim"> <label for="crianca_afetuosa_sim">Sim</label>
+        <input type="radio" id="crianca_afetuosa_nao" name="crianca_afetuosa" value="nao"> <label for="crianca_afetuosa_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_crianca_afetuosa">Observação:</label>
+        <textarea id="obs_crianca_afetuosa" name="obs_crianca_afetuosa"></textarea>
+    </div>
+    <div class="radio-group">
+        <label class="inline-label">Sorria quando chegava algum familiar?</label>
+        <input type="radio" id="sorria_familiar_sim" name="sorria_familiar" value="sim"> <label for="sorria_familiar_sim">Sim</label>
+        <input type="radio" id="sorria_familiar_nao" name="sorria_familiar" value="nao"> <label for="sorria_familiar_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_sorria_familiar">Observação:</label>
+        <textarea id="obs_sorria_familiar" name="obs_sorria_familiar"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Fazia movimentos repetitivos?</label>
+        <input type="radio" id="mov_repetitivos_sim" name="mov_repetitivos" value="sim"> <label for="mov_repetitivos_sim">Sim</label>
+        <input type="radio" id="mov_repetitivos_nao" name="mov_repetitivos" value="nao"> <label for="mov_repetitivos_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_mov_repetitivos">Observação:</label>
+        <textarea id="obs_mov_repetitivos" name="obs_mov_repetitivos"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Apresentava maneirismos (flapping, balanceios)?</label>
+        <input type="radio" id="maneirismos_sim" name="maneirismos" value="sim"> <label for="maneirismos_sim">Sim</label>
+        <input type="radio" id="maneirismos_nao" name="maneirismos" value="nao"> <label for="maneirismos_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_maneirismos">Observação:</label>
+        <textarea id="obs_maneirismos" name="obs_maneirismos"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Apresentava dificuldades para engolir?</label>
+        <input type="radio" id="dif_engolir_sim" name="dif_engolir" value="sim"> <label for="dif_engolir_sim">Sim</label>
+        <input type="radio" id="dif_engolir_nao" name="dif_engolir" value="nao"> <label for="dif_engolir_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_dif_engolir">Observação:</label>
+        <textarea id="obs_dif_engolir" name="obs_dif_engolir"></textarea>
+    </div>
+
+    <label for="problemas_tratamentos_pi">Descreva os problemas e tratamentos:</label>
+    <textarea id="problemas_tratamentos_pi" name="problemas_tratamentos_pi"></textarea>
+
+
+    <div class="inline-fields radio-group">
+        <label class="inline-label">O bebê foi alimentado pela mãe?</label>
+        <input type="radio" id="alimentado_mae_sim" name="alimentado_mae" value="sim"> <label for="alimentado_mae_sim">Sim</label>
+        <input type="radio" id="alimentado_mae_nao" name="alimentado_mae" value="nao"> <label for="alimentado_mae_nao">Não</label>
+        <label for="idade_desmame" class="field-label" style="margin-left:15px;">Idade do Desmame:</label>
+        <input type="number" id="idade_desmame" name="idade_desmame" min="0" style="width: 50px;"> meses
+    </div>
+    <div class="obs">
+        <label for="obs_alimentado_mae">Observação (Alimentado Mãe/Desmame):</label>
+        <textarea id="obs_alimentado_mae" name="obs_alimentado_mae"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Apresentou algum problema na amamentação ou desmame?</label>
+        <input type="radio" id="problema_amamentacao_sim" name="problema_amamentacao" value="sim"> <label for="problema_amamentacao_sim">Sim</label>
+        <input type="radio" id="problema_amamentacao_nao" name="problema_amamentacao" value="nao"> <label for="problema_amamentacao_nao">Não</label>
+    </div>
+    <label for="problema_amamentacao_qual">Qual:</label>
+    <input type="text" id="problema_amamentacao_qual" name="problema_amamentacao_qual">
+
+
+    <div class="radio-group">
+        <label class="inline-label">O bebê teve um crescimento e aumento de peso normal?</label>
+        <input type="radio" id="cresc_peso_normal_sim" name="cresc_peso_normal" value="sim"> <label for="cresc_peso_normal_sim">Sim</label>
+        <input type="radio" id="cresc_peso_normal_nao" name="cresc_peso_normal" value="nao"> <label for="cresc_peso_normal_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_cresc_peso_normal">Observação:</label>
+        <textarea id="obs_cresc_peso_normal" name="obs_cresc_peso_normal"></textarea>
+    </div>
+    <div class="section-obs">
+        <label for="obs_geral_primeira_infancia">Observação Geral da Seção PRIMEIRA INFÂNCIA:</label>
+        <textarea id="obs_geral_primeira_infancia" name="obs_geral_primeira_infancia"></textarea>
+    </div>
+</section>
+
+<section>
+    <h2>ESTÁGIOS DO DESENVOLVIMENTO</h2>
+    <div class="radio-group">
+        <label class="inline-label">O bebê chorava de modo diferente quando tinha fome ou dor?</label>
+        <input type="radio" id="choro_diferente_sim" name="choro_diferente" value="sim"> <label for="choro_diferente_sim">Sim</label>
+        <input type="radio" id="choro_diferente_nao" name="choro_diferente" value="nao"> <label for="choro_diferente_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_choro_diferente">Observação:</label>
+        <textarea id="obs_choro_diferente" name="obs_choro_diferente"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Apresentava interesse por pessoas e objetos?</label>
+        <input type="radio" id="interesse_pessoas_objetos_sim" name="interesse_pessoas_objetos" value="sim"> <label for="interesse_pessoas_objetos_sim">Sim</label>
+        <input type="radio" id="interesse_pessoas_objetos_nao" name="interesse_pessoas_objetos" value="nao"> <label for="interesse_pessoas_objetos_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_interesse_pessoas_objetos">Observação:</label>
+        <textarea id="obs_interesse_pessoas_objetos" name="obs_interesse_pessoas_objetos"></textarea>
+    </div>
+
+    <label for="brinquedos_preferencia">Quais brinquedos tinha preferência?</label>
+    <input type="text" id="brinquedos_preferencia" name="brinquedos_preferencia">
+    <div class="obs">
+        <label for="obs_brinquedos_preferencia">Observação:</label>
+        <textarea id="obs_brinquedos_preferencia" name="obs_brinquedos_preferencia"></textarea>
+    </div>
+
+    <h3>Desenvolvimento (idade de ocorrência)</h3>
+    <div class="inline-fields">
+        <label for="dev_equilib_pescoco" class="field-label">Equilibrar o pescoço:</label>
+        <input type="number" id="dev_equilib_pescoco" name="dev_equilib_pescoco" min="0" style="width: 50px;"> meses
+        <label for="dev_sentar_apoio" class="field-label">Sentar com apoio:</label>
+        <input type="number" id="dev_sentar_apoio" name="dev_sentar_apoio" min="0" style="width: 50px;"> meses
+    </div>
+ 
+
+    <div class="inline-fields">
+        <label for="dev_virar_se" class="field-label">Virar-se:</label>
+        <input type="number" id="dev_virar_se" name="dev_virar_se" min="0" style="width: 50px;"> meses
+        <label for="dev_sentar_sem_apoio" class="field-label">Sentar sem apoio:</label>
+        <input type="number" id="dev_sentar_sem_apoio" name="dev_sentar_sem_apoio" min="0" style="width: 50px;"> meses
+    </div>
+
+    <div class="inline-fields">
+        <label for="dev_agarrar_objetos" class="field-label">Agarrar objetos:</label>
+        <input type="number" id="dev_agarrar_objetos" name="dev_agarrar_objetos" min="0" style="width: 50px;"> meses
+        <label for="dev_engatinhar" class="field-label">Engatinhar:</label>
+        <input type="number" id="dev_engatinhar" name="dev_engatinhar" min="0" style="width: 50px;"> meses
+    </div>
+ 
+    <div class="inline-fields">
+        <label for="dev_ficar_pe" class="field-label">Ficar em pé:</label>
+        <input type="number" id="dev_ficar_pe" name="dev_ficar_pe" min="0" style="width: 50px;"> meses
+        <label for="dev_primeiros_passos" class="field-label">Primeiros passos:</label>
+        <input type="number" id="dev_primeiros_passos" name="dev_primeiros_passos" min="0" style="width: 50px;"> meses
+    </div>
+
+
+     <div class="radio-group">
+        <label class="inline-label">Andava na ponta dos pés?</label>
+        <input type="radio" id="ponta_pes_nao" name="ponta_pes" value="nao"> <label for="ponta_pes_nao">Não</label>
+        <input type="radio" id="ponta_pes_sim" name="ponta_pes" value="sim"> <label for="ponta_pes_sim">Sim</label>
+    </div>
+    <div class="obs">
+        <label for="obs_ponta_pes">Observação:</label>
+        <textarea id="obs_ponta_pes" name="obs_ponta_pes"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">Caía com frequência?</label>
+        <input type="radio" id="caia_freq_nao" name="caia_freq" value="nao"> <label for="caia_freq_nao">Não</label>
+        <input type="radio" id="caia_freq_sim" name="caia_freq" value="sim"> <label for="caia_freq_sim">Sim</label>
+    </div>
+    <div class="obs">
+        <label for="obs_caia_freq">Observação:</label>
+        <textarea id="obs_caia_freq" name="obs_caia_freq"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Transferia o peso de um lado a outro?</label>
+        <input type="radio" id="transf_peso_sim" name="transf_peso" value="sim"> <label for="transf_peso_sim">Sim</label>
+        <input type="radio" id="transf_peso_nao" name="transf_peso" value="nao"> <label for="transf_peso_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_transf_peso">Observação:</label>
+        <textarea id="obs_transf_peso" name="obs_transf_peso"></textarea>
+    </div>
+
+     <label for="primeiras_palavras">Primeiras palavras:</label>
+     <div class="inline-fields">
+        <label for="primeiras_palavras_quando" class="field-label">Quando:</label>
+        <input type="text" id="primeiras_palavras_quando" name="primeiras_palavras_quando" size="10">
+         <label for="primeiras_palavras_quais" class="field-label">Quais:</label>
+         <input type="text" id="primeiras_palavras_quais" name="primeiras_palavras_quais" size="30">
+     </div>
+    <div class="obs">
+        <label for="obs_primeiras_palavras">Observação (Primeiras Palavras/Quando/Quais):</label>
+        <textarea id="obs_primeiras_palavras" name="obs_primeiras_palavras"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Apresenta algum problema de fala?</label>
+        <input type="radio" id="problema_fala_nao" name="problema_fala" value="nao"> <label for="problema_fala_nao">Não</label>
+        <input type="radio" id="problema_fala_sim" name="problema_fala" value="sim"> <label for="problema_fala_sim">Sim</label>
+    </div>
+    <label for="problema_fala_qual">Qual?</label>
+    <input type="text" id="problema_fala_qual" name="problema_fala_qual">
+    <div class="obs">
+        <label for="obs_problema_fala">Observação (Problema Fala/Qual):</label>
+        <textarea id="obs_problema_fala" name="obs_problema_fala"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Usa gestos significativos apontando o que deseja?</label>
+        <input type="radio" id="gestos_sig_nao" name="gestos_sig" value="nao"> <label for="gestos_sig_nao">Não</label>
+        <input type="radio" id="gestos_sig_sim" name="gestos_sig" value="sim"> <label for="gestos_sig_sim">Sim</label>
+    </div>
+    <div class="obs">
+        <label for="obs_gestos_sig">Observação:</label>
+        <textarea id="obs_gestos_sig" name="obs_gestos_sig"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Parou de falar após ter começado?</label>
+        <input type="radio" id="parou_falar_nao" name="parou_falar" value="nao"> <label for="parou_falar_nao">Não</label>
+        <input type="radio" id="parou_falar_sim" name="parou_falar" value="sim"> <label for="parou_falar_sim">Sim</label>
+    </div>
+    <div class="obs">
+        <label for="obs_parou_falar">Observação:</label>
+        <textarea id="obs_parou_falar" name="obs_parou_falar"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">É exposta a mais de uma língua?</label>
+        <input type="radio" id="mais_lingua_nao" name="mais_lingua" value="nao"> <label for="mais_lingua_nao">Não</label>
+        <input type="radio" id="mais_lingua_sim" name="mais_lingua" value="sim"> <label for="mais_lingua_sim">Sim</label>
+    </div>
+    <label for="mais_lingua_quais">Qual(is)?</label>
+    <input type="text" id="mais_lingua_quais" name="mais_lingua_quais">
+    <div class="obs">
+        <label for="obs_mais_lingua">Observação (Mais de uma língua/Qual(is)):</label>
+        <textarea id="obs_mais_lingua" name="obs_mais_lingua"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Entende a língua falada?</label>
+        <input type="radio" id="entende_lingua_sim" name="entende_lingua" value="sim"> <label for="entende_lingua_sim">Sim</label>
+        <input type="radio" id="entende_lingua_nao" name="entende_lingua" value="nao"> <label for="entende_lingua_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_entende_lingua">Observação:</label>
+        <textarea id="obs_entende_lingua" name="obs_entende_lingua"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Acata ordens simples?</label>
+        <input type="radio" id="acata_ordens_sim" name="acata_ordens" value="sim"> <label for="acata_ordens_sim">Sim</label>
+        <input type="radio" id="acata_ordens_nao" name="acata_ordens" value="nao"> <label for="acata_ordens_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_acata_ordens">Observação:</label>
+        <textarea id="obs_acata_ordens" name="obs_acata_ordens"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Tem fala peculiar?</label>
+        <input type="radio" id="fala_peculiar_sim" name="fala_peculiar" value="sim"> <label for="fala_peculiar_sim">Sim</label>
+        <input type="radio" id="fala_peculiar_nao" name="fala_peculiar" value="nao"> <label for="fala_peculiar_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_fala_peculiar">Observação:</label>
+        <textarea id="obs_fala_peculiar" name="obs_fala_peculiar"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Fala muito com objetos, animais ou amigo imaginário?</label>
+        <input type="radio" id="fala_objetos_nao" name="fala_objetos" value="nao"> <label for="fala_objetos_nao">Não</label>
+        <input type="radio" id="fala_objetos_sim" name="fala_objetos" value="sim"> <label for="fala_objetos_sim">Sim</label>
+    </div>
+    <div class="obs">
+        <label for="obs_fala_objetos">Observação:</label>
+        <textarea id="obs_fala_objetos" name="obs_fala_objetos"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Apresenta fala sem significados (jargão)?</label>
+        <input type="radio" id="fala_jargao_nao" name="fala_jargao" value="nao"> <label for="fala_jargao_nao">Não</label>
+        <input type="radio" id="fala_jargao_sim" name="fala_jargao" value="sim"> <label for="fala_jargao_sim">Sim</label>
+    </div>
+    <div class="obs">
+        <label for="obs_fala_jargao">Observação:</label>
+        <textarea id="obs_fala_jargao" name="obs_fala_jargao"></textarea>
+    </div>
+    <div class="section-obs">
+        <label for="obs_geral_desenvolvimento">Observação Geral da Seção ESTÁGIOS DO DESENVOLVIMENTO:</label>
+        <textarea id="obs_geral_desenvolvimento" name="obs_geral_desenvolvimento"></textarea>
+    </div>
+</section>
+
+<section>
+    <h2>Comportamento Social e Comunicação</h2>
+
+     <div class="radio-group">
+        <label class="inline-label">Apresenta ecolalia?</label>
+        <input type="radio" id="iniciativa_social_sim" name="iniciativa_social" value="sim"> <label for="iniciativa_social_sim">Sim</label>
+        <input type="radio" id="iniciativa_social_nao" name="iniciativa_social" value="nao"> <label for="iniciativa_social_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_iniciativa_social">Observação:</label>
+        <textarea id="obs_iniciativa_social" name="obs_iniciativa_social"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">Usa gestos para se comunicar?</label>
+        <input type="radio" id="usa_gestos_comunicar_sim" name="usa_gestos_comunicar" value="sim"> <label for="usa_gestos_comunicar_sim">Sim</label>
+        <input type="radio" id="usa_gestos_comunicar_nao" name="usa_gestos_comunicar" value="nao"> <label for="usa_gestos_comunicar_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_usa_gestos_comunicar">Observação:</label>
+        <textarea id="obs_usa_gestos_comunicar" name="obs_usa_gestos_comunicar"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Usa algum artefato alternativo para a comunicação?</label>
+        <input type="radio" id="artefato_alt_sim" name="artefato_alt" value="sim"> <label for="artefato_alt_sim">Sim</label>
+        <input type="radio" id="artefato_alt_nao" name="artefato_alt" value="nao"> <label for="artefato_alt_nao">Não</label>
+    </div>
+    <label for="artefato_alt_qual">Qual?</label>
+    <input type="text" id="artefato_alt_qual" name="artefato_alt_qual">
+    <div class="obs">
+        <label for="obs_artefato_alt">Observação (Artefato Alternativo/Qual):</label>
+        <textarea id="obs_artefato_alt" name="obs_artefato_alt"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">Inicia diálogos?</label>
+        <input type="radio" id="inicia_dialogos_sim" name="inicia_dialogos" value="sim"> <label for="inicia_dialogos_sim">Sim</label>
+        <input type="radio" id="inicia_dialogos_nao" name="inicia_dialogos" value="nao"> <label for="inicia_dialogos_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_inicia_dialogos">Observação:</label>
+        <textarea id="obs_inicia_dialogos" name="obs_inicia_dialogos"></textarea>
+    </div>
+
+    <label for="chama_atencao_como">Como chama a atenção das pessoas?</label>
+    <input type="text" id="chama_atencao_como" name="chama_atencao_como">
+
+
+    <div class="radio-group">
+        <label class="inline-label">Apresenta dificuldade para perceber perigo?</label>
+        <input type="radio" id="dif_perigo_sim" name="dif_perigo" value="sim"> <label for="dif_perigo_sim">Sim</label>
+        <input type="radio" id="dif_perigo_nao" name="dif_perigo" value="nao"> <label for="dif_perigo_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_dif_perigo">Observação:</label>
+        <textarea id="obs_dif_perigo" name="obs_dif_perigo"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">Usa as pessoas como instrumento?</label>
+        <input type="radio" id="usa_pessoas_inst_sim" name="usa_pessoas_inst" value="sim"> <label for="usa_pessoas_inst_sim">Sim</label>
+        <input type="radio" id="usa_pessoas_inst_nao" name="usa_pessoas_inst" value="nao"> <label for="usa_pessoas_inst_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_usa_pessoas_inst">Observação:</label>
+        <textarea id="obs_usa_pessoas_inst" name="obs_usa_pessoas_inst"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Tem auto-estimulação?</label>
+        <input type="radio" id="autoestimulacao_sim" name="autoestimulacao" value="sim"> <label for="autoestimulacao_sim">Sim</label>
+        <input type="radio" id="autoestimulacao_nao" name="autoestimulacao" value="nao"> <label for="autoestimulacao_nao">Não</label>
+    </div>
+    
+    <div class="obs">
+        <label for="obs_autoestimulacao">Observação (Auto-estimulação/Qual):</label>
+        <textarea id="obs_autoestimulacao" name="obs_autoestimulacao"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">Reage às mudanças de rotina?</label>
+        <input type="radio" id="reage_mudanca_rotina_sim" name="reage_mudanca_rotina" value="sim"> <label for="reage_mudanca_rotina_sim">Sim</label>
+        <input type="radio" id="reage_mudanca_rotina_nao" name="reage_mudanca_rotina" value="nao"> <label for="reage_mudanca_rotina_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_reage_mudanca_rotina">Observação:</label>
+        <textarea id="obs_reage_mudanca_rotina" name="obs_reage_mudanca_rotina"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">É impulsiva?</label>
+        <input type="radio" id="irritadica_agressiva_sim" name="irritadica_agressiva" value="sim"> <label for="irritadica_agressiva_sim">Sim</label>
+        <input type="radio" id="irritadica_agressiva_nao" name="irritadica_agressiva" value="nao"> <label for="irritadica_agressiva_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_irritadica_agressiva">Observação:</label>
+        <textarea id="obs_irritadica_agressiva" name="obs_irritadica_agressiva"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">Apresenta algum problema de comportamento?</label>
+        <input type="radio" id="problema_comp_sim" name="problema_comp" value="sim"> <label for="problema_comp_sim">Sim</label>
+        <input type="radio" id="problema_comp_nao" name="problema_comp" value="nao"> <label for="problema_comp_nao">Não</label>
+
+        <label for="obs_problema_comp">Observação (Problema Comportamento/Qual):</label>
+        <textarea id="obs_problema_comp" name="obs_problema_comp"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">Gosta de brincar de modo estranho?</label>
+        <input type="radio" id="brinca_estranho_sim" name="brinca_estranho" value="sim"> <label for="brinca_estranho_sim">Sim</label>
+        <input type="radio" id="brinca_estranho_nao" name="brinca_estranho" value="nao"> <label for="brinca_estranho_nao">Não</label>
+    </div>
+
+    <div class="obs">
+        <label for="obs_brinca_estranho">Observação (Brinca Estranho/Como):</label>
+        <textarea id="obs_brinca_estranho" name="obs_brinca_estranho"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Gosta de toques, beijos e carinhos?</label>
+        <input type="radio" id="gosta_toques_sim" name="gosta_toques" value="sim"> <label for="gosta_toques_sim">Sim</label>
+        <input type="radio" id="gosta_toques_nao" name="gosta_toques" value="nao"> <label for="gosta_toques_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_gosta_toques">Observação:</label>
+        <textarea id="obs_gosta_toques" name="obs_gosta_toques"></textarea>
+    </div>
+    <div class="radio-group">
+        <label class="inline-label">A criança gagueja?</label>
+        <input type="radio" id="alergica_sim" name="alergica" value="sim"> <label for="alergica_sim">Sim</label>
+        <input type="radio" id="alergica_nao" name="alergica" value="nao"> <label for="alergica_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_interesse_criancas_pessoas">Observação:</label>
+        <textarea id="obs_interesse_criancas_pessoas" name="obs_interesse_criancas_pessoas"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Apresenta interesse em crianças e outras pessoas?</label>
+        <input type="radio" id="interesse_criancas_pessoas_sim" name="interesse_criancas_pessoas" value="sim"> <label for="interesse_criancas_pessoas_sim">Sim</label>
+        <input type="radio" id="interesse_criancas_pessoas_nao" name="interesse_criancas_pessoas" value="nao"> <label for="interesse_criancas_pessoas_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_interesse_criancas_pessoas">Observação:</label>
+        <textarea id="obs_interesse_criancas_pessoas" name="obs_interesse_criancas_pessoas"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Alguma vez foi questionada a audição da criança?</label>
+        <input type="radio" id="suspeita_doenca_sim" name="suspeita_doenca" value="sim"> <label for="suspeita_doenca_sim">Sim</label>
+        <input type="radio" id="suspeita_doenca_nao" name="suspeita_doenca" value="nao"> <label for="suspeita_doenca_nao">Não</label>
+    </div>
+     <div class="obs">
+        <label for="obs_suspeita_doenca">Observação:</label>
+        <textarea id="obs_suspeita_doenca" name="obs_suspeita_doenca"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">Se positivo, a audição foi verificada por um especialista?</label>
+        <input type="radio" id="audicao_verificada_sim" name="audicao_verificada" value="sim"> <label for="audicao_verificada_sim">Sim</label>
+        <input type="radio" id="audicao_verificada_nao" name="audicao_verificada" value="nao"> <label for="audicao_verificada_nao">Não</label>
+    </div>
+    <label for="infeccao_ouvido_idade" class="field-label">Com que idade?</label>
+    <input type="text" id="infeccao_ouvido_idade" name="infeccao_ouvido_idade" size="10">
+     <div class="obs">
+        <label for="obs_audicao_verificada">Observação:</label>
+        <textarea id="obs_audicao_verificada" name="obs_audicao_verificada"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">Alguma vez a criança teve infecção crônica no ouvido?</label>
+        <input type="radio" id="infeccao_ouvido_sim" name="infeccao_ouvido" value="sim"> <label for="infeccao_ouvido_sim">Sim</label>
+        <input type="radio" id="infeccao_ouvido_nao" name="infeccao_ouvido" value="nao"> <label for="infeccao_ouvido_nao">Não</label>
+    </div>
+     <div class="inline-fields">
+        <label for="infeccao_ouvido_idade" class="field-label">Com que idade?</label>
+        <input type="text" id="infeccao_ouvido_idade" name="infeccao_ouvido_idade" size="10">
+     </div>
+    <div class="obs">
+        <label for="obs_infeccao_ouvido">Observação (Infecção Ouvido/Idade):</label>
+        <textarea id="obs_infeccao_ouvido" name="obs_infeccao_ouvido"></textarea>
+    </div>
+
+
+     <div class="radio-group">
+        <label class="inline-label">Apresenta problema para se comunicar?</label> <input type="radio" id="problema_comunicar_av_sim" name="problema_comunicar_av" value="sim"> <label for="problema_comunicar_av_sim">Sim</label>
+        <input type="radio" id="problema_comunicar_av_nao" name="problema_comunicar_av" value="nao"> <label for="problema_comunicar_av_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_problema_comunicar_av">Observação:</label>
+        <textarea id="obs_problema_comunicar_av" name="obs_problema_comunicar_av"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">A criança sabe cantar?</label>
+        <input type="radio" id="sabe_cantar_sim" name="sabe_cantar" value="sim"> <label for="sabe_cantar_sim">Sim</label>
+        <input type="radio" id="sabe_cantar_nao" name="sabe_cantar" value="nao"> <label for="sabe_cantar_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_sabe_cantar">Observação:</label>
+        <textarea id="obs_sabe_cantar" name="obs_sabe_cantar"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">A criança já realizou avaliação com oftalmologista?</label>
+        <input type="radio" id="aval_oftalmo_sim" name="aval_oftalmo" value="sim"> <label for="aval_oftalmo_sim">Sim</label>
+        <input type="radio" id="aval_oftalmo_nao" name="aval_oftalmo" value="nao"> <label for="aval_oftalmo_nao">Não</label>
+    </div>
+    <div class="inline-fields radio-group">
+        <label for="aval_oftalmo_idade" class="field-label">Com que idade?</label>
+        <input type="text" id="aval_oftalmo_idade" name="aval_oftalmo_idade" size="10">
+        <label class="inline-label" style="margin-left:15px;">Teve algum diagnóstico?</label>
+        <input type="radio" id="diag_oftalmo_sim" name="diag_oftalmo" value="sim"> <label for="diag_oftalmo_sim">Sim</label>
+        <input type="radio" id="diag_oftalmo_nao" name="diag_oftalmo" value="nao"> <label for="diag_oftalmo_nao">Não</label>
+    </div>
+     <label for="diag_oftalmo_qual">Qual:</label>
+     <input type="text" id="diag_oftalmo_qual" name="diag_oftalmo_qual">
+    <div class="obs">
+        <label for="obs_aval_oftalmo">Observação (Avaliação Oftalmológica/Idade/Diagnóstico/Qual):</label>
+        <textarea id="obs_aval_oftalmo" name="obs_aval_oftalmo"></textarea>
+    </div>
+
+    <div class="section-obs">
+        <label for="obs_geral_audicao_visao">Observação Geral de Comunicação:</label>
+        <textarea id="obs_geral_audicao_visao" name="obs_geral_audicao_visao"></textarea>
+    </div>
+</section>
+
+<section>
+    <h2>Controle de Esfíncteres e Alimentação</h2> <div class="radio-group">
+        <label class="inline-label">A criança tem controle de bexiga?</label>
+        <input type="radio" id="controle_bexiga_sim" name="controle_bexiga" value="sim"> <label for="controle_bexiga_sim">Sim</label>
+        <input type="radio" id="controle_bexiga_nao" name="controle_bexiga" value="nao"> <label for="controle_bexiga_nao">Não</label>
+    </div>
+
+    <div class="obs">
+        <label for="obs_controle_bexiga">Observação (Controle Bexiga/Idade):</label>
+        <textarea id="obs_controle_bexiga" name="obs_controle_bexiga"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">A criança tem controle dos intestinos?</label>
+        <input type="radio" id="controle_intestinos_sim" name="controle_intestinos" value="sim"> <label for="controle_intestinos_sim">Sim</label>
+        <input type="radio" id="controle_intestinos_nao" name="controle_intestinos" value="nao"> <label for="controle_intestinos_nao">Não</label>
+    </div>
+
+    <div class="obs">
+        <label for="obs_controle_intestinos">Observação (Controle Intestinos/Idade):</label>
+        <textarea id="obs_controle_intestinos" name="obs_controle_intestinos"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">Tem hábitos esfincterianos peculiares?</label>
+        <input type="radio" id="habitos_defecacao_sim" name="habitos_defecacao" value="sim"> <label for="habitos_defecacao_sim">Sim</label>
+        <input type="radio" id="habitos_defecacao_nao" name="habitos_defecacao" value="nao"> <label for="habitos_defecacao_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_habitos_defecacao">Observação:</label>
+        <textarea id="obs_habitos_defecacao" name="obs_habitos_defecacao"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">A criança se alimenta sozinha?</label>
+        <input type="radio" id="alimenta_sozinha_sim" name="alimenta_sozinha" value="sim"> <label for="alimenta_sozinha_sim">Sim</label>
+        <input type="radio" id="alimenta_sozinha_nao" name="alimenta_sozinha" value="nao"> <label for="alimenta_sozinha_nao">Não</label>
+    </div>
+     <div class="inline-fields radio-group">
+        <label for="alimenta_sozinha_idade" class="field-label">Começou com que idade?</label>
+        <input type="text" id="alimenta_sozinha_idade" name="alimenta_sozinha_idade" size="10">
+        <label class="inline-label" style="margin-left:15px;">Usa colher?</label>
+        <input type="radio" id="usa_talher_sim" name="usa_talher" value="sim"> <label for="usa_talher_sim">Sim</label>
+        <input type="radio" id="usa_talher_nao" name="usa_talher" value="nao"> <label for="usa_talher_nao">Não</label>
+        <label class="inline-label" style="margin-left:15px;">Usa garfo?</label>
+        <input type="radio" id="usa_garfo_sim" name="usa_garfo" value="sim"> <label for="usa_garfo_sim">Sim</label>
+        <input type="radio" id="usa_garfo_nao" name="usa_garfo" value="nao"> <label for="usa_garfo_nao">Não</label>
+        <label class="inline-label" style="margin-left:15px;">Usa faca?</label>
+        <input type="radio" id="usa_faca_sim" name="usa_faca" value="sim"> <label for="usa_faca_sim">Sim</label>
+        <input type="radio" id="usa_faca_nao" name="usa_faca" value="nao"> <label for="usa_faca_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_alimenta_sozinha">Observação (Alimenta Sozinha/Idade/Talher/Garfo/Faca):</label>
+        <textarea id="obs_alimenta_sozinha" name="obs_alimenta_sozinha"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">Tem dificuldade para se alimentar?</label>
+        <input type="radio" id="dif_alimentar_sim" name="dif_alimentar" value="sim"> <label for="dif_alimentar_sim">Sim</label>
+        <input type="radio" id="dif_alimentar_nao" name="dif_alimentar" value="nao"> <label for="dif_alimentar_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_dif_alimentar">Observação:</label>
+        <textarea id="obs_dif_alimentar" name="obs_dif_alimentar"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">Come qualquer alimento?</label>
+        <input type="radio" id="come_qualquer_alimento_sim" name="come_qualquer_alimento" value="sim"> <label for="come_qualquer_alimento_sim">Sim</label>
+        <input type="radio" id="come_qualquer_alimento_nao" name="come_qualquer_alimento" value="nao"> <label for="come_qualquer_alimento_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_come_qualquer_alimento">Observação:</label>
+        <textarea id="obs_come_qualquer_alimento" name="obs_come_qualquer_alimento"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">Tem dificuldade para aceitar mudanças no cardápio?</label>
+        <input type="radio" id="dif_mudanca_cardapio_sim" name="dif_mudanca_cardapio" value="sim"> <label for="dif_mudanca_cardapio_sim">Sim</label>
+        <input type="radio" id="dif_mudanca_cardapio_nao" name="dif_mudanca_cardapio" value="nao"> <label for="dif_mudanca_cardapio_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_dif_mudanca_cardapio">Observação:</label>
+        <textarea id="obs_dif_mudanca_cardapio" name="obs_dif_mudanca_cardapio"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">Engasga com frequência?</label>
+        <input type="radio" id="engasga_freq_sim" name="engasga_freq" value="sim"> <label for="engasga_freq_sim">Sim</label>
+        <input type="radio" id="engasga_freq_nao" name="engasga_freq" value="nao"> <label for="engasga_freq_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_engasga_freq">Observação:</label>
+        <textarea id="obs_engasga_freq" name="obs_engasga_freq"></textarea>
+    </div>
+
+    <div class="inline-fields">
+        <label class="field-label">Usou chupeta?</label>
+        <input type="radio" id="usou_chupeta_sim" name="usou_chupeta" value="sim"> <label for="usou_chupeta_sim">Sim</label>
+        <input type="radio" id="usou_chupeta_nao" name="usou_chupeta" value="nao"> <label for="usou_chupeta_nao">Não</label>
+        <label for="chupeta_dedo_tempo" class="field-label" style="margin-left:15px;">Quanto tempo?</label>
+        <input type="text" id="chupeta_dedo_tempo" name="chupeta_dedo_tempo" size="15">
+        <label class="field-label" style="margin-left:15px;">Chupou dedo?</label>
+        <input type="radio" id="chupou_dedo_sim" name="chupou_dedo" value="sim"> <label for="chupou_dedo_sim">Sim</label>
+        <input type="radio" id="chupou_dedo_nao" name="chupou_dedo" value="nao"> <label for="chupou_dedo_nao">Não</label>
+
+        <label for="chupeta_dedo_tempo" class="field-label" style="margin-left:15px;">Quanto tempo?</label>
+        <input type="text" id="chupeta_dedo_tempo" name="chupeta_dedo_tempo" size="15">
+    </div>
+     <div class="inline-fields">
+        <label class="field-label">Usou mamadeira?</label>
+         <input type="radio" id="usou_mamadeira_sim" name="usou_mamadeira" value="sim"> <label for="usou_mamadeira_sim">Sim</label>
+        <input type="radio" id="usou_mamadeira_nao" name="usou_mamadeira" value="nao"> <label for="usou_mamadeira_nao">Não</label>
+        <label for="mamadeira_tempo" class="field-label" style="margin-left:15px;">Quanto tempo?</label>
+        <input type="text" id="mamadeira_tempo" name="mamadeira_tempo" size="15">
+    </div>
+    <div class="obs">
+        <label for="obs_habitos_orais">Observação (Chupeta/Dedo/Mamadeira/Tempo):</label>
+        <textarea id="obs_habitos_orais" name="obs_habitos_orais"></textarea>
+    </div>
+
+    <div class="section-obs">
+        <label for="obs_geral_esfincteres_alimentacao">Observação Geral da Seção Controle de Esfíncteres e Alimentação:</label>
+        <textarea id="obs_geral_esfincteres_alimentacao" name="obs_geral_esfincteres_alimentacao"></textarea>
+    </div>
+</section>
+
+<section>
+     <h2>Independência / Autocuidados</h2>
+
+    <div class="radio-group">
+        <label class="inline-label">A criança se veste sozinha?</label>
+        <input type="radio" id="veste_sozinha_sim" name="veste_sozinha" value="sim"> <label for="veste_sozinha_sim">Sim</label>
+        <input type="radio" id="veste_sozinha_nao" name="veste_sozinha" value="nao"> <label for="veste_sozinha_nao">Não</label>
+    </div>
+     <div class="inline-fields">
+         <label for="veste_sozinha_idade" class="field-label">Começou com que idade?</label>
+        <input type="text" id="veste_sozinha_idade" name="veste_sozinha_idade" size="10">
+     </div>
+    <div class="obs">
+        <label for="obs_veste_sozinha">Observação (Veste Sozinha/Idade):</label>
+        <textarea id="obs_veste_sozinha" name="obs_veste_sozinha"></textarea>
+    </div>
+
+    <label>Assinale abaixo: tem problema com:</label>
+    <div class="checkbox-grid">
+        <div><input type="checkbox" id="prob_equilibrar" name="problemas_autocuidado" value="equilibrar"> <label for="prob_equilibrar">Equilibrar</label></div>
+        <div><input type="checkbox" id="prob_andar" name="problemas_autocuidado" value="andar"> <label for="prob_andar">Andar</label></div>
+        <div><input type="checkbox" id="prob_correr" name="problemas_autocuidado" value="correr"> <label for="prob_correr">Correr</label></div>
+        <div><input type="checkbox" id="prob_segurar_lapis" name="problemas_autocuidado" value="segurar_lapis"> <label for="prob_segurar_lapis">Segurar lápis</label></div>
+        <div><input type="checkbox" id="prob_segurar_colher" name="problemas_autocuidado" value="segurar_colher"> <label for="prob_segurar_colher">Segurar colher</label></div>
+        <div><input type="checkbox" id="prob_falar" name="problemas_autocuidado" value="falar"> <label for="prob_falar">Falar</label></div>
+        <div><input type="checkbox" id="prob_cortar_tesoura" name="problemas_autocuidado" value="cortar_tesoura"> <label for="prob_cortar_tesoura">Cortar com tesoura</label></div>
+        <div><input type="checkbox" id="prob_vestir" name="problemas_autocuidado" value="vestir"> <label for="prob_vestir">Vestir</label></div>
+        <div><input type="checkbox" id="prob_fazer_amizades" name="problemas_autocuidado" value="fazer_amizades"> <label for="prob_fazer_amizades">Fazer amizades</label></div>
+        <div><input type="checkbox" id="prob_canhota" name="problemas_autocuidado" value="canhota"> <label for="prob_canhota">Canhota</label></div>
+        <div><input type="checkbox" id="prob_ambidestra" name="problemas_autocuidado" value="ambidestra"> <label for="prob_ambidestra">Ambidestra</label></div>
+        <div><input type="checkbox" id="prob_ambidestra" name="problemas_autocuidado" value="ambidestra"> <label for="prob_ambidestra">Destra</label></div>
+        <div><input type="checkbox" id="prob_ambidestra" name="problemas_autocuidado" value="ambidestra"> <label for="prob_ambidestra">Não sabe</label></div>
+        
+    </div>
+    <div class="obs">
+        <label for="obs_problemas_autocuidado">Observação (Problemas com Habilidades):</label>
+        <textarea id="obs_problemas_autocuidado" name="obs_problemas_autocuidado"></textarea>
+    </div>
+
+    <div class="radio-group">
+        <label class="inline-label">A criança possui algum(s) hábito(s) ou maneirismo?</label>
+        <input type="radio" id="habito_maneirismo_sim" name="habito_maneirismo" value="sim"> <label for="habito_maneirismo_sim">Sim</label>
+        <input type="radio" id="habito_maneirismo_nao" name="habito_maneirismo" value="nao"> <label for="habito_maneirismo_nao">Não</label>
+        <label for="obs_habito_maneirismo">Observação (Hábito/Maneirismo/Qual):</label>
+        <textarea id="obs_habito_maneirismo" name="obs_habito_maneirismo"></textarea>
+    </div>
+
+    <div class="section-obs">
+        <label for="obs_geral_independencia_autocuidados">Observação Geral da Seção Independência / Autocuidados:</label>
+        <textarea id="obs_geral_independencia_autocuidados" name="obs_geral_independencia_autocuidados"></textarea>
+    </div>
+</section>
+
+<section>
+     <h2>Comportamento, Rotina e Sono</h2>
+
+     <div class="radio-group">
+        <label class="inline-label">A criança dá-se bem com os pais, irmãos ou irmãs?</label>
+        <input type="radio" id="relacao_familia_sim" name="relacao_familia" value="sim"> <label for="relacao_familia_sim">Sim</label>
+        <input type="radio" id="relacao_familia_nao" name="relacao_familia" value="nao"> <label for="relacao_familia_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_relacao_familia">Observação:</label>
+        <textarea id="obs_relacao_familia" name="obs_relacao_familia"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">O relacionamento familiar é bom?</label>
+        <input type="radio" id="rel_familiar_bom_sim" name="rel_familiar_bom" value="sim"> <label for="rel_familiar_bom_sim">Sim</label>
+        <input type="radio" id="rel_familiar_bom_nao" name="rel_familiar_bom" value="nao"> <label for="rel_familiar_bom_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_rel_familiar_bom">Observação:</label>
+        <textarea id="obs_rel_familiar_bom" name="obs_rel_familiar_bom"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">A criança faz amigos?</label>
+        <input type="radio" id="faz_amigos_sim" name="faz_amigos" value="sim"> <label for="faz_amigos_sim">Sim</label>
+        <input type="radio" id="faz_amigos_nao" name="faz_amigos" value="nao"> <label for="faz_amigos_nao">Não</label>
+    </div>
+     <div class="checkbox-group inline-fields">
+        <label class="inline-label">Prefere amigos da:</label>
+        <input type="checkbox" id="amigos_mesma_idade" name="pref_amigos" value="mesma_idade"> <label for="amigos_mesma_idade">mesma idade</label>
+        <input type="checkbox" id="amigos_mais_jovens" name="pref_amigos" value="mais_jovens"> <label for="amigos_mais_jovens">mais jovens</label>
+        <input type="checkbox" id="amigos_mais_velhos" name="pref_amigos" value="mais_velhos"> <label for="amigos_mais_velhos">mais velhos</label>
+        <input type="checkbox" id="amigos_nao_tem" name="pref_amigos" value="nao_tem"> <label for="amigos_nao_tem">não tem amigos</label>
+    </div>
+    <div class="obs">
+        <label for="obs_faz_amigos">Observação (Faz Amigos/Preferência):</label>
+        <textarea id="obs_faz_amigos" name="obs_faz_amigos"></textarea>
+    </div>
+
+     <div class="radio-group">
+        <label class="inline-label">A criança dorme só?</label>
+        <input type="radio" id="dorme_so_sim" name="dorme_so" value="sim"> <label for="dorme_so_sim">Sim</label>
+        <input type="radio" id="dorme_so_nao" name="dorme_so" value="nao"> <label for="dorme_so_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_dorme_so">Observação:</label>
+        <textarea id="obs_dorme_so" name="obs_dorme_so"></textarea>
+    </div>
+     <div class="radio-group">
+        <label class="inline-label">Problemas de sono?</label>
+        <input type="radio" id="problemas_sono_sim" name="problemas_sono" value="sim"> <label for="problemas_sono_sim">Sim</label>
+        <input type="radio" id="problemas_sono_nao" name="problemas_sono" value="nao"> <label for="problemas_sono_nao">Não</label>
+    </div>
+    <div class="obs">
+        <label for="obs_problemas_sono">Observação (Problemas Sono/Quais):</label>
+        <textarea id="obs_problemas_sono" name="obs_problemas_sono"></textarea>
+    </div>
+
+    <div class="inline-fields">
+        <label for="descricaorotina" class="field-label">Descrição da rotina familiar</label>
+        <textarea id="descricaorotina" name="descricaorotina"></textarea>
+   </div>
+
+    <div class="section-obs">
+        <label for="obs_geral_comp_rotina_sono">Observação Geral da Seção Comportamento, Rotina e Sono:</label>
+        <textarea id="obs_geral_comp_rotina_sono" name="obs_geral_comp_rotina_sono"></textarea>
+    </div>
+</section>
+
+<section>
+    <h2>Escola</h2>
+
+    <div class="radio-group">
+       <label class="inline-label">A criança frequenta a escola?</label>
+       <input type="radio" id="relacao_familia_sim" name="relacao_familia" value="sim"> <label for="relacao_familia_sim">Sim</label>
+       <input type="radio" id="relacao_familia_nao" name="relacao_familia" value="nao"> <label for="relacao_familia_nao">Não</label>
+   </div>
+   <div class="radio-group">
+       <label for="obs_relacao_familia">Qual tipo de escola?</label>
+       <input type="radio" id="relacao_familia_sim" name="relacao_familia" value="sim"> <label for="relacao_familia_sim">Particular</label>
+       <input type="radio" id="relacao_familia_nao" name="relacao_familia" value="nao"> <label for="relacao_familia_nao">Pública</label>
+   </div>
+
+   <div class="radio-group">
+    <label for="obs_relacao_familia">Qual tipo de escola?</label>
+    <input type="radio" id="relacao_familia_sim" name="relacao_familia" value="sim"> <label for="relacao_familia_sim">Creche</label>
+    <input type="radio" id="relacao_familia_nao" name="relacao_familia" value="nao"> <label for="relacao_familia_nao">Sala Especial</label>
+    <input type="radio" id="relacao_familia_nao" name="relacao_familia" value="nao"> <label for="relacao_familia_nao">Escola Especial</label>
+    </div>
+    <div class="obs">
+        <label for="obs_rel_familiar_bom">Observação:</label>
+        <textarea id="obs_rel_familiar_bom" name="obs_rel_familiar_bom"></textarea>
+    </div>
+    <div class="radio-group">
+        <label for="obs_relacao_familia">Há queixa por parte da escola quanto ao comportamento ou aprendizagem?</label>
+        <input type="radio" id="relacao_familia_sim" name="relacao_familia" value="sim"> <label for="relacao_familia_sim">Sim</label>
+        <input type="radio" id="relacao_familia_nao" name="relacao_familia" value="nao"> <label for="relacao_familia_nao">Não</label>
+        </div>
+        <div class="obs">
+            <label for="obs_rel_familiar_bom">Observação:</label>
+            <textarea id="obs_rel_familiar_bom" name="obs_rel_familiar_bom"></textarea>
+        </div>
+     
+    <div class="radio-group">
+        <label class="inline-label">A criança teve frequentes mudanças de escola ou professor?</label>
+        <input type="radio" id="faz_amigos_sim" name="faz_amigos" value="sim"> <label for="faz_amigos_sim">Sim</label>
+        <input type="radio" id="faz_amigos_nao" name="faz_amigos" value="nao"> <label for="faz_amigos_nao">Não</label>
+    </div>
+   <div class="obs">
+       <label for="obs_rel_familiar_bom">Observação:</label>
+       <textarea id="obs_rel_familiar_bom" name="obs_rel_familiar_bom"></textarea>
+   </div>
+
+   
+</section>
+
+<section>
+    <h2>Saúde</h2>
+            <div class="form-group">
+                <label>A criança toma algum remédio atualmente?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="toma_remedio" value="sim"> sim</label>
+                    <label><input type="radio" name="toma_remedio" value="não"> não</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="qual_remedio">Se positivo, qual, dosagem e a finalidade:</label>
+                <input type="text" id="qual_remedio" name="qual_remedio">
+            </div>
+
+            <div class="form-group">
+                <label for="quanto_tempo_remedio">Há quanto tempo?</label>
+                <input type="text" id="quanto_tempo_remedio" name="quanto_tempo_remedio">
+            </div>
+
+            <div class="form-group">
+                <label>A criança é alérgica a algum medicamento?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="alergia_medicamento" value="sim"> sim</label>
+                    <label><input type="radio" name="alergia_medicamento" value="não"> não</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="relacione_explique_alergia">Relacione e explique:</label>
+                <textarea id="relacione_explique_alergia" name="relacione_explique_alergia" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>A criança teve alguma doença séria?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="doenca_seria" value="sim"> sim</label>
+                    <label><input type="radio" name="doenca_seria" value="não"> não</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="explique_doenca_seria">Explique cada uma destas, data ou idade, duração e medicação administrada:</label>
+                <textarea id="explique_doenca_seria" name="explique_doenca_seria" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>A criança teve algum ferimento ou acidente significativo?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="ferimento_acidente" value="sim"> sim</label>
+                    <label><input type="radio" name="ferimento_acidente" value="não"> não</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="explique_ferimento_acidente">Explique cada um e as datas:</label>
+                <textarea id="explique_ferimento_acidente" name="explique_ferimento_acidente" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>A criança já esteve hospitalizada?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="hospitalizada" value="sim"> sim</label>
+                    <label><input type="radio" name="hospitalizada" value="não"> não</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="quando_porque_hospitalizada">Quando e por quê?</label>
+                <textarea id="quando_porque_hospitalizada" name="quando_porque_hospitalizada" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="descreva_como_filho_e">Descreva como o seu filho é:</label>
+                <textarea id="descreva_como_filho_e" name="descreva_como_filho_e" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="quais_tratamentos">Qual(is) tratamento(s) seu filho realiza?</label>
+                <textarea id="quais_tratamentos" name="quais_tratamentos" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="expectativa_tratamento">Qual sua expectativa quanto ao tratamento do seu filho?</label>
+                <textarea id="expectativa_tratamento" name="expectativa_tratamento" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="laudo_exames">Laudo de exames por imagens ou outros relevantes:</label>
+                <textarea id="laudo_exames" name="laudo_exames" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>OBSERVAÇÕES:</h3>
+            <div class="form-group">
+                <textarea id="observacoes" name="observacoes" rows="4"></textarea>
+            </div>
+        </div>
+   
+</section>
+
+<script>
+    // Função para gerar JSON a partir dos dados do formulário
+    function gerarJSON() {
+        // Criar um objeto para armazenar todos os dados
+        const dadosRelatorio = {
+            dadosPessoais: {},
+            gravidez: {},
+            nascimento: {},
+            posNascimento: {},
+            primeiraInfancia: {},
+            estagiosDesenvolvimento: {},
+            comportamentoSocial: {},
+            esfincteresAlimentacao: {},
+            independenciaAutocuidados: {},
+            comportamentoRotinaSono: {},
+            escola: {},
+            saude: {}
+        };
+
+        // Capturar todos os inputs, selects e textareas do formulário
+        const inputs = document.querySelectorAll('input, select, textarea');
+        
+        // Processar cada elemento
+        inputs.forEach(element => {
+            if (!element.name || element.name === "") return; // Pular elementos sem nome
+            
+            // Determinar a seção baseado na estrutura do DOM
+            let section = determinarSecao(element);
+            
+            // Tratar diferentes tipos de input
+            if (element.type === 'radio') {
+                // Só processar radios selecionados
+                if (element.checked) {
+                    adicionarValorAoObjeto(dadosRelatorio, section, element.name, element.value);
+                }
+            } else if (element.type === 'checkbox') {
+                // Só processar checkboxes selecionados
+                if (element.checked) {
+                    // Capturar o valor do input de texto associado ao checkbox "outros"
+                    if (element.id && element.id.includes('outros_check')) {
+                        const outrosTextId = element.id.replace('_check', '_text');
+                        const outrosTextElement = document.getElementById(outrosTextId);
+                        if (outrosTextElement && outrosTextElement.value) {
+                            adicionarValorAoObjeto(dadosRelatorio, section, element.name + '_outros_texto', outrosTextElement.value);
+                        }
+                    }
+                    adicionarValorAoObjeto(dadosRelatorio, section, element.name, element.value, true);
+                }
+            } else {
+                // Processar outros inputs, selects e textareas
+                // Ignorar campos de texto associados a checkboxes "outros" (já tratados acima)
+                if (!(element.id && element.id.includes('_text') && document.getElementById(element.id.replace('_text', '_check')))) {
+                    adicionarValorAoObjeto(dadosRelatorio, section, element.name, element.value);
+                }
+            }
+        });
+
+        // Corrigir seções específicas com problemas conhecidos
+        corrigirSecaoEscola(dadosRelatorio);
+        corrigirCamposDuplicados(dadosRelatorio);
+
+        // Converter o objeto para JSON formatado
+        const jsonString = JSON.stringify(dadosRelatorio, null, 2);
+        
+        // Criar um blob para download
+        const blob = new Blob([jsonString], {type: "application/json"});
+        const url = URL.createObjectURL(blob);
+        
+        // Criar elemento de download
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "relatorio_anamnese.json";
+        document.body.appendChild(a);
+        a.click();
+        
+        // Limpar
+        setTimeout(() => {
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }, 0);
+        
+        // Mostrar prévia do JSON no console
+        console.log(jsonString);
+        
+        // Opcional: Mostrar um alerta de sucesso
+        alert("Relatório gerado com sucesso!");
+    }
+    
+    // Função para corrigir campos na seção Escola
+    function corrigirSecaoEscola(dadosRelatorio) {
+        // Copiar campos da seção escola que estão usando names de outras seções
+        const escolaSection = document.querySelector('section h2:contains("Escola")').closest('section');
+        if (escolaSection) {
+            const inputs = escolaSection.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                if (input.name && input.name !== "") {
+                    if (input.type === 'radio') {
+                        if (input.checked) {
+                            dadosRelatorio.escola[input.name + '_escola'] = input.value;
+                        }
+                    } else if (input.type === 'checkbox') {
+                        if (input.checked) {
+                            if (!dadosRelatorio.escola[input.name + '_escola']) {
+                                dadosRelatorio.escola[input.name + '_escola'] = [];
+                            }
+                            dadosRelatorio.escola[input.name + '_escola'].push(input.value);
+                        }
+                    } else {
+                        if (input.value) {
+                            dadosRelatorio.escola[input.name + '_escola'] = input.value;
+                        }
+                    }
+                }
+            });
+        }
+    }
+    
+    // Função para corrigir campos duplicados
+    function corrigirCamposDuplicados(dadosRelatorio) {
+        // Tratar campos de observação duplicados
+        const obsFields = document.querySelectorAll('textarea[id^="obs_"]');
+        let contadores = {};
+        
+        obsFields.forEach(field => {
+            if (field.value && field.name) {
+                const section = determinarSecao(field);
+                if (!contadores[section]) contadores[section] = {};
+                if (!contadores[section][field.name]) contadores[section][field.name] = 0;
+                
+                contadores[section][field.name]++;
+                
+                // Se for um campo duplicado, adiciona um sufixo ao nome
+                if (contadores[section][field.name] > 1) {
+                    const newName = field.name + '_' + contadores[section][field.name];
+                    dadosRelatorio[section][newName] = field.value;
+                }
+            }
+        });
+    }
+    
+    // Função para determinar a seção baseada na localização do elemento no DOM
+    function determinarSecao(element) {
+        // Encontrar a seção pai mais próxima
+        let currentNode = element.parentNode;
+        while (currentNode && currentNode.tagName !== 'SECTION') {
+            currentNode = currentNode.parentNode;
+        }
+        
+        if (!currentNode) return "outros";
+        
+        // Identificar a seção com base no texto do h2
+        const h2 = currentNode.querySelector('h2');
+        if (!h2) return "outros";
+        
+        // Mapear o texto do cabeçalho para as chaves do objeto
+        const tituloSecao = h2.textContent.trim().toLowerCase();
+        
+        if (tituloSecao.includes('dados pessoais')) return 'dadosPessoais';
+        if (tituloSecao.includes('gravidez')) return 'gravidez';
+        if (tituloSecao.includes('nascimento')) return 'nascimento';
+        if (tituloSecao.includes('pós-nascimento')) return 'posNascimento';
+        if (tituloSecao.includes('primeira infância')) return 'primeiraInfancia';
+        if (tituloSecao.includes('estágios do desenvolvimento')) return 'estagiosDesenvolvimento';
+        if (tituloSecao.includes('comportamento social')) return 'comportamentoSocial';
+        if (tituloSecao.includes('esfíncteres')) return 'esfincteresAlimentacao';
+        if (tituloSecao.includes('independência')) return 'independenciaAutocuidados';
+        if (tituloSecao.includes('comportamento, rotina')) return 'comportamentoRotinaSono';
+        if (tituloSecao.includes('escola')) return 'escola';
+        if (tituloSecao.includes('saúde')) return 'saude';
+        
+        return "outros";
+    }
+    
+    // Função para adicionar valores ao objeto, lidando com arrays quando necessário
+    function adicionarValorAoObjeto(obj, secao, nome, valor, isCheckbox = false) {
+        // Verificar se o valor não está vazio
+        if (valor === null || valor === undefined || valor === "") return;
+        
+        // Checkboxes com mesmo nome devem ser tratados como array
+        if (isCheckbox) {
+            if (!obj[secao][nome]) {
+                obj[secao][nome] = [];
+            }
+            if (Array.isArray(obj[secao][nome])) {
+                obj[secao][nome].push(valor);
+            } else {
+                // Se já existir um valor, converte para array
+                obj[secao][nome] = [obj[secao][nome], valor];
+            }
+        } else {
+            // Tratar campos duplicados adicionando um sufixo numérico
+            if (obj[secao][nome] !== undefined) {
+                // Se já existe um campo com este nome, encontrar um novo nome
+                let contador = 1;
+                let novoNome = nome;
+                while (obj[secao][novoNome] !== undefined) {
+                    novoNome = nome + '_' + contador;
+                    contador++;
+                }
+                obj[secao][novoNome] = valor;
+            } else {
+                obj[secao][nome] = valor;
+            }
+        }
+    }
+
+    // Adicionar seletor customizado para elementos que contenham texto específico
+    if (!Element.prototype.matches) {
+        Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+    }
+
+    if (!Element.prototype.closest) {
+        Element.prototype.closest = function(s) {
+            var el = this;
+            do {
+                if (el.matches(s)) return el;
+                el = el.parentElement || el.parentNode;
+            } while (el !== null && el.nodeType === 1);
+            return null;
+        };
+    }
+
+    // Selector personalizado para encontrar elementos que contenham texto específico
+    document.querySelectorAll = document.querySelectorAll || function(selector) {
+        if (selector.includes(':contains')) {
+            const matches = [];
+            const regex = /:contains\(['"]([^'"]+)['"]\)/;
+            const match = selector.match(regex);
+            if (match && match[1]) {
+                const textToFind = match[1];
+                const mainSelector = selector.replace(/:contains\([^)]+\)/, '');
+                const elements = document.querySelectorAll(mainSelector);
+                for (let i = 0; i < elements.length; i++) {
+                    if (elements[i].textContent.includes(textToFind)) {
+                        matches.push(elements[i]);
+                    }
+                }
+                return matches;
+            }
+        }
+        return document.querySelectorAll(selector);
+    };
+
+    // Adicionar botão de geração do JSON no final do formulário
+    window.onload = function() {
+        const lastSection = document.querySelector('section:last-of-type');
+        const botaoDiv = document.createElement('div');
+        botaoDiv.style.margin = '20px 0';
+        botaoDiv.style.textAlign = 'center';
+        
+        const botao = document.createElement('button');
+        botao.type = 'button';
+        botao.textContent = 'Gerar Relatório JSON';
+        botao.style.padding = '10px 20px';
+        botao.style.fontSize = '16px';
+        botao.style.backgroundColor = '#4CAF50';
+        botao.style.color = 'white';
+        botao.style.border = 'none';
+        botao.style.borderRadius = '4px';
+        botao.style.cursor = 'pointer';
+        botao.onclick = gerarJSON;
+        
+        botaoDiv.appendChild(botao);
+        
+        // Inserir o botão após a última seção
+        if (lastSection && lastSection.parentNode) {
+            lastSection.parentNode.insertBefore(botaoDiv, lastSection.nextSibling);
+        } else {
+            // Caso não encontre a última seção
+            document.body.appendChild(botaoDiv);
+        }
+    };
+</script>
+</body>
+</html>
